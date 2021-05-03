@@ -1,15 +1,55 @@
-import { Flex, Stack } from '@chakra-ui/react';
 import { 
-	RiDashboardLine, 
-	RiContactsLine, 
-	RiInputMethodLine, 
-	RiGitMergeLine
-} from 'react-icons/ri';
+	Flex, 
+	useBreakpointValue, 
+	Drawer, 
+	DrawerOverlay, 
+	DrawerContent, 
+	DrawerCloseButton,
+	DrawerHeader,
+	DrawerBody 
+} from '@chakra-ui/react';
+import React from 'react';
 
-import { NavSection } from './NavSection';
-import { NavLink } from './NavLink';
+import { SidebarNav } from '../../components/Sidebar/SidebarNav';
+import { useSidebarDrawer } from '../../contexts/SidebarDrawerContext';
 
 export function Sidebar() {
+
+	const { isOpen, onClose } = useSidebarDrawer();
+
+	const isDrawerSidebarLeft = useBreakpointValue({
+		base: true,
+		lg: false,
+	})
+
+	if (isDrawerSidebarLeft) {
+		return (
+			<Drawer 
+				isOpen={isOpen}  
+				onClose={onClose} 
+				placement="left" // Posicionamento
+			>
+				<DrawerOverlay>
+					<DrawerContent
+						bg="blue.975" 
+						paddingX="4" 
+						paddingTop="100" 
+					>
+						
+						<DrawerCloseButton mt="6" marginTop="110" />
+
+						<DrawerHeader>Navegação</DrawerHeader>
+
+						<DrawerBody>
+							<SidebarNav />
+						</DrawerBody>
+
+					</DrawerContent>
+				</DrawerOverlay>
+			</Drawer>
+		);
+	}
+
 	return (
 		<Flex 
 			as="aside" 
@@ -22,19 +62,10 @@ export function Sidebar() {
 			paddingLeft="8"
 			paddingRight="8"
 		>
-			<Stack spacing="12" align="flex-start">
+			
+			<SidebarNav />
 
-				<NavSection title="MENU PRINCIPAL">
-					<NavLink icon={RiDashboardLine}>Dashboard</NavLink>
-					<NavLink icon={RiContactsLine}>Usuários</NavLink>
-				</NavSection>
-
-				<NavSection title="AUTOMAÇÃO">
-					<NavLink icon={RiInputMethodLine}>Formulários</NavLink>
-					<NavLink icon={RiGitMergeLine}>Automação</NavLink>
-				</NavSection>
-				
-			</Stack>
 		</Flex>
 	);
+
 }

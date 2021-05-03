@@ -4,9 +4,9 @@ import { RiNotificationLine, RiUserAddLine } from 'react-icons/ri';
 export function Notifications() {
 	return (
 		<HStack
-			spacing="6" 
-			marginX="8" 
-			paddingRight="8" 
+			spacing={["6", "8"]} 
+			marginX={["6", "8"]}
+			paddingRight={["6", "8"]}
 			paddingY="1" 
 			color="blue.80"
 			borderColor="blue.90"

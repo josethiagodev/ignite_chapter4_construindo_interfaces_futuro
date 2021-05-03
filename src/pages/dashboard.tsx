@@ -102,10 +102,10 @@ export default function Dashboard() {
 					paddingTop="115px"
 				>
 					<Box
-						paddingX="7" paddingY="5"
+						paddingX={[ "5", "8" ]} 
+						paddingY={[ "5", "7" ]} 
 						bg="blue.975" 
-						borderRadius={8}
-						// paddingBottom="4"
+						borderRadius={8} 
 					>
 						<Text 
 							w="auto"
@@ -122,10 +122,10 @@ export default function Dashboard() {
 					</Box>
 
 					<Box
-						paddingX="7" paddingY="5"
+						paddingX={[ "5", "8" ]} 
+						paddingY={[ "5", "7" ]}  
 						bg="blue.975" 
-						borderRadius={8}
-						// paddingBottom="4"
+						borderRadius={8} 
 					>
 						<Text 
 							w="auto"

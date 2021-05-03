@@ -2,10 +2,11 @@ import { Box, Text } from '@chakra-ui/react';
 
 export function Logotipo() {
 	return (
-		<Box w="65" h="auto">
+		<Box w="auto" h="auto">
 			<Text
-				w="65"
-				fontSize="3x1" 
+				w="auto" 
+				h="auto"
+				fontSize={[ "1xl", "2xl" ]}
 				fontWeight="bold" 
 				letterSpacing="tight"
 			>
