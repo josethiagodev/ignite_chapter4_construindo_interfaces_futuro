@@ -13,13 +13,14 @@ export function PaginationItem({
 	if (isCurrent) {
 		return (
 			<Button 
-				width="4"
+				width="9" 
+				height="8"
 				size="sm"
 				font-size="xs"
 				colorScheme="#45466e"
 				disabled 
 				_disabled={{
-					bg: 'blue.500',
+					bg: 'blue.400',
 					cursor: 'default',
 				}}
 			>
@@ -34,8 +35,9 @@ export function PaginationItem({
 			size="sm"
 			font-size="xs"
 			colorScheme="#45466e"
+			bg="blue.985"
 			_hover={{
-				bg: 'blue.90',
+				background: 'blue.90',
 			}}
 		>
 			{number}

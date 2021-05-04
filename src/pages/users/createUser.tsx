@@ -3,6 +3,7 @@ import {
 	Divider, VStack, SimpleGrid, 
 	HStack, Button
 } from "@chakra-ui/react";
+import Link from 'next/link';
 
 import { Header } from "../../components/Header";
 import { Sidebar } from "../../components/Sidebar";
@@ -24,27 +25,27 @@ export default function CreateUser() {
 				<Box 
 					flex="1" 
 					borderRadius={8} 
-					paddingTop="115"
-					pl="5"
-					pr="5"
-					pb="5"
+					mt="115"
+					pl="6"
+					pr="6"
+					pb="6"
 				>
 					<Flex
 						direction="column" 
 						width="100%" 
 						minHeight="auto" 
 						marginX="auto" 
-						padding="5"
+						padding={[ "5", "6", "7" ]}
 						bg="blue.975"
 						borderRadius="10"
 					>
-						<Heading size="lg" fontWeight="normal" fontSize="24">
+						<Heading size="lg" fontWeight="normal" fontSize="23">
 							Cadastrar usuário
 						</Heading>
 
-						<Divider marginY="6" borderColor="#373960" />
+						<Divider w="100%" mt="6" mb="8" borderColor="#373960" />
 
-						<VStack spacing="8">
+						<VStack spacing="6">
 							<SimpleGrid minChildWidth="250px" width="100%" spacing="8">
 								<Input name="name" label="Nome completo" />
 								<Input name="email" type="email" label="Seu melhor email" />
@@ -56,26 +57,34 @@ export default function CreateUser() {
 						</VStack>
 
 						<Flex mt="8" justify="flex-end">
-							<HStack spacing="4">
-								<Button
-									size="sm"
-									font-size="xs"
-									bgColor="rgba(42, 45, 83, 1)"
-									_hover={{
-										bg: '#31335a',
-									}}
-									px="5"
-								>
-									Cancelar
-								</Button>
+							<HStack spacing="6">
+								<Link href="/users" passHref>
+									<Button 
+										w={["100%", "100%", "auto"]}
+										size="sm" 
+										paddingX="6" 
+										paddingY="5" 
+										font-size="xs"
+										bg="blue.500"
+										_hover={{
+											bg: 'blue.300',
+											color: "#FFFFFF",
+										}}
+									>
+										Cancelar
+									</Button>
+								</Link>
 								<Button 
-									size="sm"
-									font-size="xs"
-									bgColor="#a928e7" 
+									w={["100%", "100%", "auto"]}
+									size="sm" 
+									paddingX="6" 
+									paddingY="5" 
+									font-size="xs" 
+									bg="#a928e7" 
 									_hover={{
-										bg: '#45466e',
+										background: "#9100cf",
+										color: "#FFFFFF",
 									}}
-									px="5"
 								>
 									Cadastrar
 								</Button>

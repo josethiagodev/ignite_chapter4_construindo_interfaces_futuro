@@ -3,8 +3,10 @@ import {
 	Box, Flex, Heading, 
 	Button, Icon, Text,
 	Table, Thead, Tr, 
-	Th, Tbody, Td, Checkbox
+	Th, Tbody, Td, 
+	Checkbox, useBreakpointValue
 } from "@chakra-ui/react";
+import Link from "next/link";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 
 import { Header } from "../../components/Header";
@@ -12,6 +14,12 @@ import { Sidebar } from "../../components/Sidebar";
 import { Pagination } from "../../components/Pagination";
 
 export default function Users() {
+
+	const isScreenLarge = useBreakpointValue({
+		base: false,
+		lg: true,
+	});
+
 	return (
 		<Box direction="column" height="100vh">
 			<Header />
@@ -39,18 +47,29 @@ export default function Users() {
 						justify="space-between" 
 						align="center"
 					>
-						<Heading size="lg" fontWeight="normal" fontSize="24">
+						<Heading 
+							size="lg" 
+							fontWeight="normal" 
+							fontSize="24"
+						>
 							Visualizar usúarios
 						</Heading>
-						<Button
-							as="a"
-							size="sm"
-							bgColor="#a928e7" 
-							leftIcon={<Icon as={RiAddLine} />} 
-							fontSize="14"
-						>
-							Criar usuário
-						</Button>
+						<Link href="/users/createUser" passHref>
+							<Button
+								as="a"
+								size="sm"
+								leftIcon={<Icon as={RiAddLine} />} 
+								fontSize="14" 
+								color="#FFFFFF"
+								bgColor="#a928e7" 
+								_hover={{
+									background: "#9100cf",
+									color: "#FFFFFF",
+								}}
+							>
+								Criar usuário
+							</Button>
+						</Link>
 					</Flex>
 				
 					<Flex
@@ -62,20 +81,55 @@ export default function Users() {
 						bg="blue.975"
 						borderRadius="10"
 					>
+						
 						<Table w="100%" h="auto">
 							<Thead>
 								<Tr>
-									<Th px="5" color="blue.40" width="8" borderColor="#373960">
+									<Th 
+										width="8"
+										px={["4", "4", "6"]} 
+										color="blue.40" 
+										borderColor="#373960" 
+									>
 										<Checkbox colorScheme="#a928e7" />
 									</Th>
-									<Th color="blue.50" borderColor="#373960">Nome do usuário</Th>
-									<Th color="blue.50" borderColor="#373960">Data do cadastro</Th>
-									<Th color="blue.50" w="8" borderColor="#373960">Ações</Th>
+									<Th 
+										color="blue.50" 
+										borderColor="#373960"
+										fontSize="13" 
+										fontWeight="400"
+									>
+										Nome do usuário
+									</Th>
+									{ isScreenLarge && 
+										<Th 
+											color="blue.50" 
+											borderColor="#373960" 
+											fontSize="13" 
+											fontWeight="400"
+										>
+											Data de cadastro
+										</Th> 
+									}
+									<Th 
+										w="8" 
+										color="blue.50" 
+										borderColor="#373960"
+										fontSize="13" 
+										fontWeight="400"
+									>
+										Ações
+									</Th>
 								</Tr>
 							</Thead>
 							<Tbody>
 								<Tr>
-									<Td px="5" borderColor="#373960">
+									<Td
+										width="8"
+										px={["4", "4", "6"]} 
+										color="blue.40" 
+										borderColor="#373960"
+									>
 										<Checkbox colorScheme="#a928e7" />
 									</Td>
 									<Td borderColor="#373960">
@@ -88,24 +142,35 @@ export default function Users() {
 											</Text>
 										</Box>
 									</Td>
-									<Td fontSize="14" fontWeight="400" color="blue.30" borderColor="#373960">
-										26 de Abril, 2021
-									</Td>
+									{ isScreenLarge && 
+										<Td fontSize="14" fontWeight="400" color="blue.30" borderColor="#373960">
+											26 de Abril, 2021
+										</Td>
+									}
 									<Td borderColor="#373960">
 										<Button
-											as="a"
-											size="sm"
+											as="a" 
+											size="sm" 
+											fontSize="13" 
+											fontWeight="500" 
+											cursor="pointer" 
 											bg="blue.400" 
-											leftIcon={<Icon as={RiPencilLine} />}
-											fontSize="13"
-											cursor="pointer"
+											_hover={{
+												background: "blue.100",
+												color: "#FFFFFF",
+											}}
 										>
-											Editar
+											{ isScreenLarge ? 'Editar' : <Icon as={RiPencilLine} fontSize="15" /> }
 										</Button>
 									</Td>
 								</Tr>
 								<Tr>
-									<Td px="5" borderColor="#373960">
+									<Td
+										width="8"
+										px={["4", "4", "6"]} 
+										color="blue.40" 
+										borderColor="#373960"
+									>
 										<Checkbox colorScheme="#a928e7" />
 									</Td>
 									<Td borderColor="#373960">
@@ -118,24 +183,35 @@ export default function Users() {
 											</Text>
 										</Box>
 									</Td>
-									<Td fontSize="14" fontWeight="400" color="blue.30" borderColor="#373960">
-										26 de Abril, 2021
-									</Td>
+									{ isScreenLarge && 
+										<Td fontSize="14" fontWeight="400" color="blue.30" borderColor="#373960">
+											26 de Abril, 2021
+										</Td>
+									}
 									<Td borderColor="#373960">
 										<Button
-											as="a"
-											size="sm"
+											as="a" 
+											size="sm" 
+											fontSize="13" 
+											fontWeight="500" 
+											cursor="pointer" 
 											bg="blue.400" 
-											leftIcon={<Icon as={RiPencilLine} />}
-											fontSize="13"
-											cursor="pointer"
+											_hover={{
+												background: "blue.100",
+												color: "#FFFFFF",
+											}}
 										>
-											Editar
+											{ isScreenLarge ? 'Editar' : <Icon as={RiPencilLine} fontSize="15" /> }
 										</Button>
 									</Td>
 								</Tr>
 								<Tr>
-									<Td px="5" borderColor="#373960">
+									<Td 
+										width="8"
+										px={["4", "4", "6"]} 
+										color="blue.40" 
+										borderColor="#373960"
+									>
 										<Checkbox colorScheme="#a928e7" />
 									</Td>
 									<Td borderColor="#373960">
@@ -148,19 +224,25 @@ export default function Users() {
 											</Text>
 										</Box>
 									</Td>
-									<Td fontSize="14" fontWeight="400" color="blue.30" borderColor="#373960">
-										26 de Abril, 2021
-									</Td>
+									{ isScreenLarge && 
+										<Td fontSize="14" fontWeight="400" color="blue.30" borderColor="#373960">
+											26 de Abril, 2021
+										</Td>
+									}
 									<Td borderColor="#373960">
 										<Button
-											as="a"
-											size="sm"
+											as="a" 
+											size="sm" 
+											fontSize="13" 
+											fontWeight="500" 
+											cursor="pointer" 
 											bg="blue.400" 
-											leftIcon={<Icon as={RiPencilLine} />}
-											fontSize="13"
-											cursor="pointer"
+											_hover={{
+												background: "blue.100",
+												color: "#FFFFFF",
+											}}
 										>
-											Editar
+											{ isScreenLarge ? 'Editar' : <Icon as={RiPencilLine} fontSize="15" /> }
 										</Button>
 									</Td>
 								</Tr>
@@ -170,6 +252,7 @@ export default function Users() {
 						<Box w="100%" justify="center" align="center" direction="row">
 							<Pagination />
 						</Box>
+
 					</Flex>
 				</Box>
 			</Flex>
